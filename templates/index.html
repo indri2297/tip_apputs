@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuzzy Tip Calculator WebApp</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Fuzzy Tip Calculator + AI Search</h1>
+
+    <form method="POST">
+        <label>Food Quality (0 - 10)</label>
+        <input type="number" name="food" min="0" max="10" step="0.1" required>
+
+        <label>Service Quality (0 - 10)</label>
+        <input type="number" name="service" min="0" max="10" step="0.1" required>
+
+        <button type="submit">Hitung Tip</button>
+    </form>
+
+    {% if tip %}
+    <div class="result">
+        <h2>Hasil Perhitungan</h2>
+        <p><strong>Tip:</strong> {{ tip|round(2) }} %</p>
+        <p><strong>BFS Result:</strong> {{ bfs }}</p>
+        <p><strong>DFS Result:</strong> {{ dfs }}</p>
+        <p><strong>Greedy BFS Result:</strong> {{ gbfs }}</p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
